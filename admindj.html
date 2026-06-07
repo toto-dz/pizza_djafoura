@@ -1352,6 +1352,21 @@
     </div>
   </div>
 
+  <!-- ADD PRODUCTS MODAL -->
+  <div class="modal-overlay" id="addProductsModal">
+    <div class="modal">
+      <div class="modal-title">
+        <span>➕ إضافة منتجات للطلب</span>
+        <button class="close-btn" onclick="closeModal('addProductsModal')"><i class="fas fa-times"></i></button>
+      </div>
+      <div id="addProductsContent" style="margin-bottom:20px; max-height:400px; overflow-y:auto"></div>
+      <div style="display:flex; gap:10px">
+        <button class="btn btn-primary" onclick="confirmAddProducts()">إضافة</button>
+        <button class="btn btn-warning" onclick="closeModal('addProductsModal')">إلغاء</button>
+      </div>
+    </div>
+  </div>
+
   <!-- REOPEN CONFIRM MODAL -->
   <div class="modal-overlay" id="reopenConfirmModal">
     <div class="modal">
@@ -1374,3 +1389,4 @@
 </body>
 
 </html>
+
