@@ -9,6 +9,7 @@ let currentPage = 'dashboard';
 let ordersFilter = 'all';
 let orderPollInterval = null;
 let pendingReopenOrderId = null;
+let pendingAddProductsOrderId = null;
 
 // ===== AUTH =====
 document.addEventListener('DOMContentLoaded', applyRestaurantBranding);
@@ -254,10 +255,11 @@ function buildOrdersTable(list) {
        <td>
          <button class="action-btn btn-info" onclick="viewOrderDetail(${o.id})"><i class="fas fa-eye"></i></button>
          <button class="action-btn btn-danger" onclick="deleteOrder(${o.id})" style="margin-right:4px"><i class="fas fa-trash"></i></button>
-         ${o.status === 'delivered' ? `
-           <span class="status-badge status-delivered" style="margin-right:8px">تم التسليم</span>
-           <button class="action-btn btn-success" onclick="reopenOrder(${o.id})" style="margin-right:8px"><i class="fas fa-unlock"></i> إعادة فتح الطلب</button>
-         ` : ''}
+${o.status === 'delivered' ? `
+            <span class="status-badge status-delivered" style="margin-right:8px">تم التسليم</span>
+            <button class="action-btn btn-success" onclick="reopenOrder(${o.id})" style="margin-right:8px"><i class="fas fa-unlock"></i> إعادة فتح الطلب</button>
+            <button class="action-btn btn-primary" onclick="addProductsToOrder(${o.id})" style="margin-right:8px"><i class="fas fa-plus"></i> إضافة منتجات</button>
+          ` : ''}
        </td>
       </tr>
   `).join('')}
@@ -324,6 +326,84 @@ async function performReopen(orderId) {
   showToast('✅ تم إعادة فتح الطلب', 'success');
   renderOrders();
   renderDashboard();
+}
+
+function addProductsToOrder(orderId) {
+  pendingAddProductsOrderId = orderId;
+  renderProductsForAdd();
+  openModal('addProductsModal');
+}
+
+function renderProductsForAdd() {
+  const content = document.getElementById('addProductsContent');
+  const availableProducts = products.filter(p => p.available);
+
+  if (availableProducts.length === 0) {
+    content.innerHTML = `<div class="empty-state"><span class="emoji">📦</span><h3>لا توجد منتجات متاحة</h3></div>`;
+    return;
+  }
+
+  content.innerHTML = availableProducts.map(p => `
+    <div class="cart-item" style="margin-bottom:12px; padding:12px; border:1px solid var(--border); border-radius:10px">
+      <div class="cart-item-info">
+        <div class="cart-item-name">${p.name}</div>
+        <div class="cart-item-price">${p.price.toLocaleString()} دج</div>
+      </div>
+      <div class="qty-ctrl">
+        <input type="number" min="1" value="0" id="addQty-${p.id}" style="width:50px; padding:4px; border-radius:6px; border:1px solid var(--border); background:var(--surface); color:var(--text); text-align:center">
+      </div>
+    </div>
+  `).join('');
+}
+
+async function confirmAddProducts() {
+  if (pendingAddProductsOrderId === null) return;
+  const order = orders.find(o => o.id == pendingAddProductsOrderId);
+  if (!order) return;
+
+  const selectedItems = [];
+  products.filter(p => p.available).forEach(p => {
+    const qtyInput = document.getElementById(`addQty-${p.id}`);
+    const qty = parseInt(qtyInput?.value) || 0;
+    if (qty > 0) {
+      selectedItems.push({ name: p.name, qty: qty, price: p.price });
+    }
+  });
+
+  if (selectedItems.length === 0) {
+    closeModal('addProductsModal');
+    pendingAddProductsOrderId = null;
+    return;
+  }
+
+  const addedTotal = selectedItems.reduce((s, i) => s + i.price * i.qty, 0);
+  const existingTotal = order.total || 0;
+  const newTotal = existingTotal + addedTotal;
+
+  const newItems = [...(order.items || []), ...selectedItems];
+
+  try {
+    const res = await callAPI('addToOrderItems', {
+      orderId: pendingAddProductsOrderId,
+      items: newItems,
+      total: newTotal
+    });
+    if (res.success) {
+      order.items = newItems;
+      order.total = newTotal;
+      order.updatedAt = new Date().toISOString();
+      saveOrders(orders);
+      showToast('✅ تم إضافة المنتجات للطلب', 'success');
+    } else {
+      showToast(`❌ ${res.error || 'تعذر إضافة المنتجات'}`, 'error');
+    }
+  } catch (e) {
+    showToast('⚠️ لا يوجد اتصال بالسيرفر', 'error');
+  }
+
+  closeModal('addProductsModal');
+  pendingAddProductsOrderId = null;
+  renderOrders();
 }
 
 function viewOrderDetail(orderId) {
