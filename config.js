@@ -6,7 +6,7 @@
 const PUBLIC_MENU_URL = "https://toto-dz.github.io/pizza_djafoura/menudj.html";
 
 // 🔗 رابط Google Apps Script
-const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzYsqFBwtM9-yU6flVHrxREww0rDo8w-4wl_-JvBNog_Qv02uAp-tBMxOef7r--XA-flw/exec";
+const GOOGLE_APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwrOwHdAUNUUsbwuL8E5X643sZgMKQfzxQKCSarlfJwXrhBOQulJy3YvZzOFUrP1o_4iw/exec";
 
 // ⚙️ إعدادات نظام النقاط
 const POINTS_PER_100_DZD = 1;
