@@ -242,7 +242,7 @@ async function submitRegister() {
   const phone = normalizePhone(document.getElementById('regPhone').value);
 
   if (!name || !phone) { showToast('⚠️ يرجى إدخال الاسم والهاتف', 'error'); return; }
-  if (phone.length !== 10) { showToast('⚠️ رقم الهاتف غير صحيح', 'error'); return; }
+  if (!isValidAlgerianPhone(phone)) { showToast('⚠️ رقم الهاتف غير صحيح. يجب أن يبدأ بـ 05 أو 06 أو 07 ويحتوي على 10 أرقام', 'error'); return; }
 
   const btn = document.getElementById('registerBtn');
   btn.disabled = true;
@@ -669,7 +669,7 @@ async function fetchLoyaltyForPhone(phoneOverride) {
 
   const phoneInput = document.getElementById('loyaltyPhoneInput');
   const phone = phoneOverride ? normalizePhone(phoneOverride) : (phoneInput ? normalizePhone(phoneInput.value) : null);
-  if (!phoneOverride && (!phone || phone.length !== 10)) {
+  if (!phoneOverride && !isValidAlgerianPhone(phone)) {
     showToast('⚠️ أدخل رقم هاتف صحيح', 'error');
     return;
   }
@@ -716,7 +716,7 @@ async function fetchLoyaltyForPhone(phoneOverride) {
 async function showDeliveredLoyalty(order) {
   const phone = normalizePhone(order.customerPhone || localStorage.getItem('customerPhone'));
 
-  if (!phone || phone.length !== 10) {
+  if (!phone || !isValidAlgerianPhone(phone)) {
     return;
   }
 
