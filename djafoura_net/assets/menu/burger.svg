@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Burger">
+  <rect width="640" height="480" fill="#171c22"/>
+  <path d="M142 225c19-80 102-130 217-124 101 5 177 54 199 124 9 29-16 56-52 56H194c-36 0-61-27-52-56z" fill="#d99035"/>
+  <circle cx="242" cy="158" r="8" fill="#fff0c2"/>
+  <circle cx="315" cy="139" r="8" fill="#fff0c2"/>
+  <circle cx="395" cy="157" r="8" fill="#fff0c2"/>
+  <path d="M165 267h383" stroke="#41b883" stroke-width="24" stroke-linecap="round"/>
+  <path d="M178 299h352" stroke="#f2c34b" stroke-width="28" stroke-linecap="round"/>
+  <path d="M183 331h345" stroke="#6b351c" stroke-width="42" stroke-linecap="round"/>
+  <path d="M169 367c88 36 246 38 364 0 0 39-35 63-89 68H245c-58-4-92-28-76-68z" fill="#d99035"/>
+</svg>

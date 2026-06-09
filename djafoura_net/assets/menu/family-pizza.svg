@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Family pizza">
+  <rect width="640" height="480" fill="#211417"/>
+  <circle cx="320" cy="240" r="198" fill="#d48832"/>
+  <circle cx="320" cy="240" r="166" fill="#f5c45a"/>
+  <path d="M320 74v332M154 240h332M202 122l236 236M438 122 202 358" stroke="#fff1bd" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="244" cy="170" r="24" fill="#b51d2b"/>
+  <circle cx="360" cy="150" r="22" fill="#b51d2b"/>
+  <circle cx="420" cy="250" r="24" fill="#b51d2b"/>
+  <circle cx="337" cy="328" r="23" fill="#b51d2b"/>
+  <circle cx="224" cy="293" r="22" fill="#b51d2b"/>
+  <circle cx="286" cy="230" r="19" fill="#3f9d63"/>
+  <circle cx="386" cy="292" r="18" fill="#3f9d63"/>
+  <circle cx="320" cy="98" r="26" fill="#e94936" opacity=".35"/>
+</svg>

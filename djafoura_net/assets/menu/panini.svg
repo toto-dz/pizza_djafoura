@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Panini">
+  <rect width="640" height="480" fill="#201b18"/>
+  <path d="M135 188c40-63 140-85 264-70 77 9 133 40 169 92 20 30 5 70-31 81-129 37-268 38-418 4-37-8-47-62-24-92 4-5 8-10 40-15z" fill="#d99639"/>
+  <path d="M143 274c132 38 296 36 394-5 7 48-22 88-78 104-87 25-184 25-291 2-60-13-91-42-89-87 12 2 24 4 64 12z" fill="#f0b64e"/>
+  <path d="M172 245c100 25 207 25 320 0" stroke="#6f3b20" stroke-width="12" stroke-linecap="round"/>
+  <path d="M186 205c43 12 79 14 109 5" stroke="#f6d27a" stroke-width="14" stroke-linecap="round"/>
+  <path d="M337 204c52 16 98 15 138-3" stroke="#f6d27a" stroke-width="14" stroke-linecap="round"/>
+  <path d="M210 304h305" stroke="#3dae72" stroke-width="18" stroke-linecap="round"/>
+  <path d="M242 333h240" stroke="#e44333" stroke-width="18" stroke-linecap="round"/>
+</svg>

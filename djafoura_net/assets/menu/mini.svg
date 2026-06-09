@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Mini sandwich">
+  <rect width="640" height="480" fill="#172024"/>
+  <path d="M150 245c26-92 117-145 232-129 95 13 166 76 176 165 5 44-31 81-77 81H212c-55 0-84-50-62-117z" fill="#d9973d"/>
+  <path d="M174 236c59 25 124 32 196 19 69-12 126-2 173 27" fill="none" stroke="#f6cf75" stroke-width="34" stroke-linecap="round"/>
+  <path d="M178 303h358c-15 59-57 91-126 96H246c-46-9-76-41-68-96z" fill="#f3b34d"/>
+  <path d="M201 285c77 22 155 23 234 0 32-9 65-8 98 3" fill="none" stroke="#42b883" stroke-width="22" stroke-linecap="round"/>
+  <path d="M220 316h292" stroke="#d63c2f" stroke-width="26" stroke-linecap="round"/>
+  <circle cx="230" cy="155" r="7" fill="#fff3cf"/>
+  <circle cx="285" cy="139" r="7" fill="#fff3cf"/>
+  <circle cx="343" cy="140" r="7" fill="#fff3cf"/>
+  <circle cx="405" cy="159" r="7" fill="#fff3cf"/>
+</svg>

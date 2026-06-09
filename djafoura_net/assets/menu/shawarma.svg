@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Sandwich">
+  <rect width="640" height="480" fill="#151f21"/>
+  <path d="M178 139c110 19 209 68 300 148 28 25 25 70-7 91-39 25-86 26-134-2-76-44-142-90-197-140-40-37-27-88 38-97z" fill="#f0c069"/>
+  <path d="M196 171c97 19 183 61 259 126" fill="none" stroke="#d8993b" stroke-width="38" stroke-linecap="round"/>
+  <path d="M202 215c67 55 143 102 228 141" fill="none" stroke="#d94132" stroke-width="24" stroke-linecap="round"/>
+  <path d="M229 194c76 52 151 91 226 116" fill="none" stroke="#43b977" stroke-width="18" stroke-linecap="round"/>
+  <path d="M280 225c50 37 98 65 145 84" fill="none" stroke="#7a3f20" stroke-width="26" stroke-linecap="round"/>
+  <path d="M161 126c55 84 156 174 306 269" fill="none" stroke="#fff2c8" stroke-width="12" stroke-linecap="round" opacity=".55"/>
+</svg>
